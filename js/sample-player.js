@@ -73,7 +73,7 @@ function playSample(s){
 function preloadSampleFiles() {
   soundFormats('mp3', 'ogg');
   for (let i = 0; i < files.length; ++i){
-    sounds[i] = loadSound("/samples/" + files[i]);
+    sounds[i] = loadSound("../samples/" + files[i]);
   }
 }
 
