@@ -1,5 +1,5 @@
 // const socket = io("http://localhost:8000");
-const socket = io("https://kak-socketio-server.herokuapp.com/:8000");
+const socket = io("https://kak-socketio-server.herokuapp.com");
 
 // server
 socket.on("connect", () => {
