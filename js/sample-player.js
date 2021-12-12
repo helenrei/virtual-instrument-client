@@ -1,4 +1,4 @@
-let online = false;
+let online = true;
 
 // define sample files
 const files = [
