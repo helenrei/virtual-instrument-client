@@ -1,8 +1,6 @@
 // Socket.io server configuration
 // const socket = io("http://localhost:8000");
-const socket = io("https://kak-socketio-server.herokuapp.com/:8000", {
-  withCredentials: true
-});
+const socket = io("https://kak-socketio-server.herokuapp.com");
 
 socket.on("connect", () => {
   console.log("Client connected to: " + socket.id);
