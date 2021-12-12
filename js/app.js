@@ -2,7 +2,7 @@
 const socket = io("http://localhost:8000");
 
 socket.on("connect", () => {
-  console.log("Client connected to: " + socket.id); // x8WIv7-mJelg7on_ALbx
+  console.log("Client connected to: " + socket.id);
   online = true;
 });
 

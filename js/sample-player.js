@@ -46,6 +46,17 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+// playing with touch
+
+const keys = document.querySelectorAll(".key");
+
+keys.forEach((key, idx) => {  
+  key.addEventListener('click', () => {   
+    socket.emit("send-data", {"sample": idx} );
+  });
+});
+
+
 
 function recieveData(data){
   playSample(data.sample);
@@ -69,7 +80,7 @@ function preloadSampleFiles() {
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight)
+  createCanvas(windowWidth, windowHeight*0.8)
   
   // https://p5js.org/reference/#/p5.FFT
   fft = new p5.FFT();
@@ -89,11 +100,11 @@ function draw() {
 
   spectrum = fft.analyze(); 
   energy = fft.getEnergy(100, 255);
-  size = map(energy, 0, 255, energy*0.2, windowHeight);
+  size = map(energy, 0, 255, energy*0.2, windowHeight*0.8);
 
   stroke('hsla(0, 80%, 100%, 0.5)');
   strokeWeight(size*0.05);
-  circle(windowWidth*0.5, windowHeight*0.5, size);
+  circle(windowWidth*0.5, windowHeight*0.4, size);
 }
 
 
@@ -106,5 +117,5 @@ function touchStarted() {
 }
 // handles browser resize
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight, false);
+  resizeCanvas(windowWidth, windowHeight*0.8, false);
 }
